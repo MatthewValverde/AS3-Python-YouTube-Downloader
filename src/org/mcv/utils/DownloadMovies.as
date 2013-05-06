@@ -1,7 +1,6 @@
 package org.mcv.utils
 {
 	import flash.display.Sprite;
-	import org.mcv.events.ObjectEvent;
 	import org.mcv.utils.DownloadNativeProcess;
 	import flash.desktop.NativeProcessStartupInfo;
 	import flash.events.NativeProcessExitEvent;
@@ -11,12 +10,7 @@ package org.mcv.utils
 	import flash.utils.ByteArray;
 	import __AS3__.vec.Vector;
 	import flash.events.EventDispatcher;
-	
-	/**
-	 * ...
-	 * @author Matthew C. Valverde
-	 */
-	
+		
 	public class DownloadMovies
 	{
 		public static var PROGRESS_EVENT:String = "progress_event";

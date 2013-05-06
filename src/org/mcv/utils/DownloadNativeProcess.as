@@ -2,10 +2,6 @@ package org.mcv.utils
 {
 	import flash.desktop.NativeProcess;
 	
-	/**
-	 * ...
-	 * @author Matthew C. Valverde
-	 */
 	public class DownloadNativeProcess extends NativeProcess 
 	{
 		public var url:String;

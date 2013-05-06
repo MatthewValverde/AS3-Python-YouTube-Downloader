@@ -4,12 +4,7 @@ package
 	import flash.events.Event;
 	import org.mcv.utils.DownloadMovies;
 	import flash.text.TextField;
-	
-	/**
-	 * ...
-	 * @author Matthew C. Valverde
-	 */
-	
+		
 	public class Main extends Sprite 
 	{
 		private var progressText:TextField;
