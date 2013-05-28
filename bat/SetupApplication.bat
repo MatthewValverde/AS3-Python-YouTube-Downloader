@@ -24,7 +24,7 @@ set APP_ID=AIRYTDownloader
 
 :: Output
 set AIR_PATH=air
-set AIR_NAME=AIRYTDownloader
+set AIR_NAME=YouTube" "Downloader
 
 
 :validation

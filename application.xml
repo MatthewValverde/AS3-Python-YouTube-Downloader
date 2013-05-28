@@ -3,16 +3,16 @@
 
 	<id>AIRYTDownloader</id>
 	<versionNumber>1.0</versionNumber>
-	<filename>AIRYTDownloader</filename>
+	<filename>YouTube Downloader</filename>
 
-	<name>AIR-YT-Downloader</name>
+	<name>YouTube Downloader</name>
 	<description>
 	</description>
 	<copyright>
 	</copyright>
 
 	<initialWindow>
-		<title>AIR-YT-Downloader</title>
+		<title>YouTube Downloader</title>
 		<content>AIRYTDownloader.swf</content>
 		<systemChrome>standard</systemChrome>
 		<transparent>false</transparent>

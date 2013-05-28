@@ -10,7 +10,7 @@ package org.mcv.utils
 	import flash.utils.ByteArray;
 	import __AS3__.vec.Vector;
 	import flash.events.EventDispatcher;
-		
+	
 	public class DownloadMovies
 	{
 		public static var PROGRESS_EVENT:String = "progress_event";
@@ -18,7 +18,7 @@ package org.mcv.utils
 		protected static var dispatch:EventDispatcher;
 		public static var exeFile:File;
 		public static var workingDir:File;
-		public static var folderName:String = "exe";
+		public static var folderName:String = "YouTube Downloads";
 		public static var exeName:String = "youtube-dl.exe";
 		public static var mainDir:File = File.desktopDirectory;
 		public static var progressValue:String;
@@ -26,28 +26,27 @@ package org.mcv.utils
 		
 		public static function initialize():void
 		{
-			var cinema:String = folderName + "/" + exeName;
-			var cinemaFile:File = File.applicationDirectory.resolvePath(cinema);
+			var python:String = folderName + "/" + exeName;
+			var pythonFile:File = File.applicationDirectory.resolvePath(python);
 			
 			workingDir = mainDir.resolvePath(folderName);
 			exeFile = workingDir.resolvePath(exeName);
 			
 			if (!exeFile.exists)
 			{
-				cinemaFile.copyTo(exeFile);
+				pythonFile.copyTo(exeFile);
 			}
 		}
 		
-		public static function start(youtubeID:String):void
+		public static function start(youtubeWatchPath:String):void
 		{
-			var youtubeWatchPath:String = "http://www.youtube.com/watch?v="
 			var args:Vector.<String> = new Vector.<String>();
 			var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
 			var process:DownloadNativeProcess = new DownloadNativeProcess();
 			
-			currentVideoID = youtubeID;
+			currentVideoID = youtubeWatchPath;
 			
-			args.push(" " + youtubeWatchPath + youtubeID);
+			args.push(" " + youtubeWatchPath);
 			
 			nativeProcessStartupInfo.executable = exeFile;
 			nativeProcessStartupInfo.workingDirectory = workingDir;
@@ -55,7 +54,7 @@ package org.mcv.utils
 			
 			process.addEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, onOutputData);
 			process.addEventListener(NativeProcessExitEvent.EXIT, onExit);
-			process.title = youtubeID;
+			process.title = youtubeWatchPath;
 			process.start(nativeProcessStartupInfo);
 			process.standardInput.writeUTFBytes(args + "\n");
 		}
@@ -72,7 +71,7 @@ package org.mcv.utils
 				event.target.destination = String(desArray2[0]);
 			}
 			
-			progressValue = currentVideoID + " : " + outputString;
+			progressValue = outputString.slice(outputString.search("]")+2, outputString.length);
 			
 			dispatchEvent(new Event(PROGRESS_EVENT));
 		}
